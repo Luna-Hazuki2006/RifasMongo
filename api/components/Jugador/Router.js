@@ -1,4 +1,4 @@
-import { validarCuerpo, validarId } from "./Validaciones.js";
+import { validarCuerpo, validarCedula } from "./Validaciones.js";
 import { JugadorControlador } from "./Controlador.js";
 
 const JugadorRouter = (app) => {
@@ -7,13 +7,13 @@ const JugadorRouter = (app) => {
 
     app.get('/Jugador', controlador.Listar);
     
-    app.get('/Jugador/:id', validarId, controlador.Consultar)
+    app.get('/Jugador/:cedula', validarCedula, controlador.Consultar)
     
     app.post('/Jugador', validarCuerpo, controlador.Crear);
     
-    app.put('/Jugador/:id', validarId, validarCuerpo, controlador.Modificar)
+    app.put('/Jugador/:cedula', validarCedula, validarCuerpo, controlador.Modificar)
     
-    app.delete('/Jugador/:id', validarId, controlador.Eliminar)
+    app.delete('/Jugador/:cedula', validarCedula, controlador.Eliminar)
     
 }
 
